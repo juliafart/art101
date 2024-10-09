@@ -11,6 +11,17 @@ body {
 h1,h2,h3 {
   font-family: 'Courier New', monospace;
 }
+</style>
+</head>
+<body>
+
+<h1>Lorem ipsum dolor sit amet</h1>
+
+<p>Lorem ipsum dolor sit amet.</p>
+<p>0 1 2 3 4 5 6 7 8 9</p>
+
+</body>
+</html>
 
 /* and we can have rules that overlap other rules, both take effect */
 h1 {
