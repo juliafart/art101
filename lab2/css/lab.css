@@ -1,5 +1,8 @@
 /* Here we can set styles for this lab page that we don't want to effect others pages */
-
+p{
+  text-indent: 15px;
+  margin-left: 5px
+}
 /* the period in a CSS selector selects an element by class, e.g., class="minor-section" */
 .minor-section {
     padding: 10px;
