@@ -1,6 +1,6 @@
 // index.js - purpose and description here
-// Author: Your Name
-// Date:
+// Author: Julia Gomez :)
+// Date: October 17, 2024
 
 // Constants
 
@@ -19,3 +19,11 @@ function main() {
 
 // let's get this party started
 main();
+// Print the five cards (with each icon)
+// Accept user input
+// Validate user move
+//  Evaluate if the cards match
+// Tally round points
+// Choose computer move
+// Test of win or draw condition
+
