@@ -2,7 +2,8 @@
 // Author: Julia Gomez
 // Date: October 21, 2024
 
-// Define Variables
+
+// Miata Car Variables
 make = "Mazada";
 model = "Miada";
 color = "forrest green";
