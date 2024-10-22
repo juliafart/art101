@@ -1,7 +1,10 @@
-// index.js - purpose and description here
-// Author: Your Name
-// Date:
+// index.js - data types and variables
+// Author: Julia Gomez
+// Date: October 21, 2024
 
+// Define Variables
+make = "Mazada";
+model
 // Constants
 
 // Functions
