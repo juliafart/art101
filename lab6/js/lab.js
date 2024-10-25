@@ -18,5 +18,5 @@ myMainRide = {
 
 
   //Output
-  document.writeln("The Kinds of transportation I use around campus: ", myTransport,"</br>");
-  document.writeln("My dream Main Ride <pre>",JSON.stringify(myMainRide, null,'/t'), "</pre>");
+  document.writeln("The Kinds of transportation I use around campus: ", myTransport,"<br>");
+  document.writeln("My dream Main Ride: <pre>",JSON.stringify(myMainRide, null,'/t'), "</pre>");
