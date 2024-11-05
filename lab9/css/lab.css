@@ -4,8 +4,11 @@
     border: solid 1px #ff0000;;
     background-color: #fb000023;
   }
+  
   .special {
     font-weight: bold;
+    border: dotted 50px rgba(255, 0, 0, 0.484);
+    margin-left: auto;
 }
 
   .redfish {
