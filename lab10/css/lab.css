@@ -4,7 +4,9 @@
     border: solid 1px #ff0000;;
     background-color: #fb000023;
   }
-  
+  .thumb {
+    float: right;
+  }
   .text p {
     display: inline-block;
     max-width: 60%;
