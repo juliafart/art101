@@ -7,38 +7,33 @@
    Date: 11/7/2024
 */
 
-// add button to challenge section
-$("#Challenge").append("<button id='button-challenge'>Make Special</button>");
+function generateRandomText() {
+    const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+    const min = 3;
+    const max = 100;
+    const randLen = Math.floor(Math.random() * (max - min + 1)) + min;
+    // Get a random starting index to slice the Lorem Ipsum text
+    const randStart = Math.floor(Math.random() * (text.length - randLen + 1));
+    // Generate the random Lorem Ipsum-like text
+    return text.slice(randStart, randStart + randLen);
+  }
+  
+  // click listener for button
+$("#make-convo").click(function(){
+});
 
-// add a click listener to the challenge button
-$("#button-challenge").click(function() {
-    //now add (or subtract) the "special" class to the section
-    $("#Challenge").toggleClass("special");
-})
+// get new fake dialogue
+const newText = generateRandomText();
 
-//for problem section
-$("#Problem").append("<button id='button-problem'>Make Special</button>");
+// append a new div to our output div
+$("#output").append('<div class="text"><p>' + newText + '</p></div>');
 
-// add a click listener to the challenge button
-$("#button-problem").click(function() {
-    //now add (or subtract) the "special" class to the section
-    $("#Problem").toggleClass("special");
-})
-
-//for relection section
-$("#Reflection").append("<button id='button-reflection'>Make Special</button>");
-
-// add a click listener to the challenge button
-$("#button-reflection").click(function() {
-    //now add (or subtract) the "special" class to the section
-    $("#Reflection").toggleClass("special");
-})
 
 //for results section
-$("#Results").append("<button id='button-results'>Make Special</button>");
+$("#Results").append("<button id='button-results'>make-convo'</button>");
 
 // add a click listener to the challenge button
 $("#button-results").click(function() {
     //now add (or subtract) the "special" class to the section
-    $("#Results").toggleClass("special");
+    $("#Results").toggleClass("make-convo");
 })
