@@ -30,7 +30,7 @@ $("#output").append('<div class="text"><p>' + newText + '</p></div>');
 
 
 //for results section
-$("#Results").append("<button id='button-results'>make-convo'</button>");
+$("#Results").append("<button id='button-results'>say something </button>");
 
 // add a click listener to the challenge button
 $("#button-results").click(function() {
