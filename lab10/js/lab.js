@@ -18,22 +18,15 @@ function generateRandomText() {
     return text.slice(randStart, randStart + randLen);
   }
   
-  // click listener for button
-$("#make-convo").click(function(){
-});
 
 // get new fake dialogue
 const newText = generateRandomText();
 
-// append a new div to our output div
-$("#output").append('<div class="text"><p>' + newText + '</p></div>');
-
-
-//for results section
-$("#Results").append("<button id='button-results'>say something </button>");
-
-// add a click listener to the challenge button
-$("#button-results").click(function() {
-    //now add (or subtract) the "special" class to the section
-    $("#Results").toggleClass("make-convo");
-})
+// Click event listener for the "Say Something" button
+$("#make-convo").click(function(){
+    // Generate new random dialogue
+    const newText = generateRandomText();
+    
+    // Append the generated text as a new paragraph inside a div
+    $("#output").append('<div class="text"><p>' + newText + '</p></div>');
+});
