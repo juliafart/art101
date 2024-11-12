@@ -7,20 +7,34 @@
    Date: 11/7/2024
 */
 
-// Sorts the characters of a string in alphabetical order.
-function sortString(inputString) {
-    // We have to convert our string to an array and back again to sort it
-    return inputString.split('').sort().join('');
-  }
-  
-  // click listener for button
-  $("#submit").click(function() {
-      // get value of input field
-      const userName = $("#user-name").val();
-  
-      // now let's sort it
-      const userNameSorted = sortString(userName);
-  
-      // append a new div to our output div
-      $("#output").html('<div class="text"><p>' + userNameSorted + '</p></div>');
-  });
+function sortingHat(str) {
+    // Step 1: Count the length of the string
+    let length = str.length;
+
+    // Step 2: Use modulus to determine the house
+    let mod = length % 4;
+
+    // Step 3: Return the corresponding house based on the mod value
+    if (mod === 0) {
+        return "Gryffindor";
+    } else if (mod === 1) {
+        return "Ravenclaw";
+    } else if (mod === 2) {
+        return "Slytherin";
+    } else {
+        return "Hufflepuff";
+    }
+}
+
+// Event listener for the button click
+document.getElementById('button').addEventListener('click', function() {
+    // Step 1: Get the value from the input field
+    let name = document.getElementById('input').value;
+
+    // Step 2: Get the house name from the sortingHat function
+    let house = sortingHat(name);
+
+    // Step 3: Display the result in the output div
+    let outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = `<p>The Sorting Hat has sorted you into ${house}!</p>`;
+});
