@@ -4,7 +4,10 @@
     border: solid 1px #ff0000;;
     background-color: #fb000023;
   }
-  
+  .mirror {
+    float: right;
+  }
+
 #input {
     padding: 10px;
     margin-right: 10px;
