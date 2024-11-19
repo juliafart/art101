@@ -56,12 +56,74 @@ crossorigin="anonymous"></script>
 
             <section id="results">
                 <h2>Results</h2>
+                <label for="limit">Where should we stop?</label>
+                <input type="number" id="limit" value="100">
+                
+                <h2>Which factors should print what?</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Prints What?</th>
+                        </tr>
+                    </thead>
+                    <tbody id="factorInputs">
+                        <tr>
+                            <td><input type="number" value="3" class="factor"></td>
+                            <td><input type="text" value="Fizz" class="word"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="number" value="4" class="factor"></td>
+                            <td><input type="text" value="Buzz" class="word"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="number" value="5" class="factor"></td>
+                            <td><input type="text" value="Boom" class="word"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="number" value="7" class="factor"></td>
+                            <td><input type="text" value="Bang" class="word"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button onclick="runFizzBuzz()">Run</button>
+                <div class="output">
+                    <h2>Output</h2>
+                    <pre id="output"></pre>
+                </div>
+            
+                <script>
+                    function runFizzBuzz() {
+                        const limit = parseInt(document.getElementById('limit').value);
+                        const rows = document.querySelectorAll('#factorInputs tr');
+                        const factors = [];
+                        
+                        rows.forEach(row => {
+                            const factor = parseInt(row.querySelector('.factor').value);
+                            const word = row.querySelector('.word').value.trim();
+                            if (!isNaN(factor) && word) {
+                                factors.push({ factor, word });
+                            }
+                        });
+                        
+                        let result = '';
+                        for (let i = 0; i <= limit; i++) {
+                            let output = '';
+                            factors.forEach(({ factor, word }) => {
+                                if (i % factor === 0) {
+                                    output += word;
+                                }
+                            });
+                            result += `${i} - ${output || i}\n`;
+                        }
+                        
+                        document.getElementById('output').textContent = result;
+                    }
                 <div id="output"></div>
             </section>
             </div>
 
-    <nav <p><a href="https://juliafart.github.io/art101/">Send me home pls! </a></p>
-    </nav>
+    <nav<p><a href="https://juliafart.github.io/art101/"> Send me home pls!</a></p> </nav>
 </main>
 </body>
 </html>

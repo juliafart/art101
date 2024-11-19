@@ -7,42 +7,40 @@
    Date: 11/7/2024
 */
 
-// FizzBuzz Function: Loops through numbers 1 to 200
-// Outputs "Fizz" for multiples of 3, "Buzz" for multiples of 5,
-// "Boom" for multiples of 7, and combinations for numbers divisible by more than one of these.
+function runFizzBuzz() {
+    // Get the stopping limit
+    const limit = parseInt(document.getElementById('limit').value);
 
-function fizzBuzz() {
-    let oneLongString = ""; // To accumulate the output
+    // Collect all factor and word pairs from the input table
+    const rows = document.querySelectorAll('#factorInputs tr');
+    const factors = [];
 
-    // Loop through numbers 1 to 200
-    for (let i = 1; i <= 200; i++) {
-        let output = "";
+    rows.forEach(row => {
+        const factor = parseInt(row.querySelector('.factor').value); // Get the factor (number)
+        const word = row.querySelector('.word').value.trim();        // Get the corresponding word
 
-        // Check divisibility and concatenate the appropriate strings
-        if (i % 3 === 0) output += "Fizz";
-        if (i % 5 === 0) output += "Buzz";
-        if (i % 7 === 0) output += "Boom";
-        if (i % 11 === 0) output += "Bang";
-        
-        const FACTORS = [
-            { number: 3, text: "Fizz" },
-            { number: 5, text: "Buzz" },
-            { number: 7, text: "Boom" },
-            { number: 11, text: "Bang" }
-        ];
-        
-        // If nothing was added to output, just use the number
-        if (output === "") output = i;
+        // Add only valid factor-word pairs to the array
+        if (!isNaN(factor) && word) {
+            factors.push({ factor, word });
+        }
+    });
 
-        // Append the output with a line break
-        oneLongString += output + "<br>";
+    // Generate the FizzBuzzBoomBang output
+    let result = ''; // Holds the final output string
+    for (let i = 0; i <= limit; i++) {
+        let output = '';
+
+        // Check each factor and append the corresponding word if divisible
+        factors.forEach(({ factor, word }) => {
+            if (i % factor === 0) {
+                output += word;
+            }
+        });
+
+        // Add the result for the current number, defaulting to the number itself if no matches
+        result += `${i} - ${output || i}\n`;
     }
 
-    // Output the final string to the #output div
-    $("#output").html(oneLongString);
+    // Display the result in the output area
+    document.getElementById('output').textContent = result;
 }
-
-// Call the fizzBuzz function when the document is ready
-$(document).ready(function() {
-    fizzBuzz();
-});
