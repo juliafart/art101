@@ -7,3 +7,27 @@
   .kia {
     float: right;
   }
+
+  /* Styling for the output */
+#output {
+  white-space: pre-wrap; /* Ensure that the output maintains line breaks */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  color: #333;
+  background-color: #e8e8e8;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
