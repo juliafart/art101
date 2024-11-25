@@ -25,26 +25,12 @@ $(document).ready(function () {
                     <p><strong>Answer:</strong> ${data.answer}</p>
                     <img src="${data.image}" alt="Response Image" style="max-width: 100%; height: auto;">
                 `;
-                $("#output").html(output);
+                $("#output").html(output); // Update #output with response
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.error("Error:", textStatus, errorThrown);
-                $("#output").text("An error occurred while fetching data. Please try again.");
+                $("#output").text("An error occurred while fetching data. Please try again."); // Error message
             }
         });
     });
 });
-
-success: function (data) {
-    // Log the response for debugging
-    console.log("API Data:", data);
-
-    // Dynamically update the #output div with the response data
-    const output = `
-        <p><strong>Answer:</strong> ${data.answer}</p>
-        <img src="${data.image}" alt="Response Image" style="max-width: 100%; height: auto;">
-    `;
-
-    // Inject into the #output div
-    $("#output").html(output);
-}
