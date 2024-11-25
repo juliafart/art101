@@ -1,0 +1,13 @@
+.minor-section {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid 1px #ff0000;;
+    background-color: #fb000023;
+  }
+
+  #output {
+    margin-top: 10px;
+    padding: 10px;
+    background: #eaeaea;
+    border-radius: 4px;
+}
