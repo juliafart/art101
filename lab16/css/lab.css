@@ -7,3 +7,24 @@
   .poopcat {
     float: right;
   }
+  /* Output Section */
+#output img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+#output h3 {
+    text-align: center;
+    color: #0077cc;
+}
+
+#output p {
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+    color: #555;
+}
