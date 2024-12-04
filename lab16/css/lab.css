@@ -1,30 +1,38 @@
+/* Minor Section Styling */
 .minor-section {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: solid 1px #ff0000;;
-    background-color: #fb000023;
-  }
-  .poopcat {
-    float: right;
-  }
-  /* Output Section */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ff0000; /* Removed extra semicolon */
+  background-color: rgba(251, 0, 0, 0.14); /* More descriptive RGBA color */
+}
+
+/* Image Styling for Poopcat */
+.poopcat {
+  float: right;
+  margin-left: 10px; /* Add spacing between text and image */
+}
+
+/* Output Section Styling */
 #output img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better visibility */
 }
 
 #output h3 {
-    text-align: center;
-    color: #0077cc;
+  text-align: center;
+  color: #0077cc;
+  font-weight: bold; /* Ensure emphasis on heading */
 }
 
 #output p {
-    font-style: italic;
-    text-align: center;
-    margin-top: 10px;
-    color: #555;
+  font-style: italic;
+  text-align: center;
+  margin-top: 10px;
+  color: #555;
+  font-size: 0.9rem; /* Slightly smaller text for captions */
 }
