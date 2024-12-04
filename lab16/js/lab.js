@@ -7,29 +7,44 @@
    Author: Julia Gomez
    Date: 11/7/2024
 */
+let currentComicNum;
+
+// Function to fetch and display a comic
+function fetchXKCDComic(comicNum) {
+  const apiUrl = comicNum
+    ? `https://xkcd.com/${comicNum}/info.0.json`
+    : "https://xkcd.com/info.0.json";
+
+  $.ajax({
+    url: apiUrl,
+    type: "GET",
+    dataType: "json",
+    success: function (comicObj) {
+      console.log(comicObj);
+      currentComicNum = comicObj.num;
+
+      const comicTitle = `<h3>${comicObj.title}</h3>`;
+      const comicImg = `<img src="${comicObj.img}" alt="${comicObj.alt}" title="${comicObj.alt}">`;
+
+      const navButtons = `
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+      `;
+
+      $("#output").html(comicTitle + comicImg + navButtons);
+
+      // Event listeners for buttons
+      $("#prev").click(() => fetchXKCDComic(currentComicNum - 1));
+      $("#next").click(() => fetchXKCDComic(currentComicNum + 1));
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error fetching comic:", textStatus, errorThrown);
+      $("#output").html("<p>Error fetching comic. Please try again later.</p>");
+    }
+  });
+}
+
+// Initial call
 $(document).ready(function () {
-    // Fetch the current XKCD comic
-    $.ajax({
-        url: "https://xkcd.com/info.0.json",
-        type: "GET",
-        dataType: "json",
-        success: function (comicObj) {
-            console.log(comicObj); // Debugging: log the data to the console
-
-            // Create and append elements to display the comic
-            const title = $('<h3>').text(comicObj.title);
-            const image = $('<img>')
-                .attr('src', comicObj.img)
-                .attr('alt', comicObj.alt)
-                .attr('title', comicObj.alt);
-            const description = $('<p>').text(comicObj.alt);
-
-            // Append to the results div
-            $('#output').append(title, image, description);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("Error fetching comic:", textStatus, errorThrown);
-            $('#output').text("Failed to fetch the comic. Please try again later.");
-        }
-    });
+  fetchXKCDComic();
 });
