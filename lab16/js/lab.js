@@ -7,13 +7,15 @@
    Author: Julia Gomez
    Date: 11/7/2024
 */
+
 let currentComicNum;
 
-// Function to fetch and display a comic
 function fetchXKCDComic(comicNum) {
   const apiUrl = comicNum
     ? `https://xkcd.com/${comicNum}/info.0.json`
     : "https://xkcd.com/info.0.json";
+
+  console.log(`Fetching comic from: ${apiUrl}`); // Debugging URL
 
   $.ajax({
     url: apiUrl,
@@ -33,9 +35,13 @@ function fetchXKCDComic(comicNum) {
 
       $("#output").html(comicTitle + comicImg + navButtons);
 
-      // Event listeners for buttons
-      $("#prev").click(() => fetchXKCDComic(currentComicNum - 1));
-      $("#next").click(() => fetchXKCDComic(currentComicNum + 1));
+      // Prevent duplicate event listeners
+      $("#prev").off("click").click(() => {
+        if (currentComicNum > 1) fetchXKCDComic(currentComicNum - 1);
+        else alert("No earlier comics!");
+      });
+
+      $("#next").off("click").click(() => fetchXKCDComic(currentComicNum + 1));
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.error("Error fetching comic:", textStatus, errorThrown);
@@ -44,7 +50,6 @@ function fetchXKCDComic(comicNum) {
   });
 }
 
-// Initial call
 $(document).ready(function () {
-  fetchXKCDComic();
+  fetchXKCDComic(); // Load the latest comic on page load
 });
